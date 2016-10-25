@@ -40,8 +40,28 @@ well the `server` is only going to render the same `HTML`. Which will look like 
 </html>
 ```
 
+It is now the responsibility of the Client-Side app to handle the finding, fetching and displaying of the data in the browser instead of the server.
+
+We do get some great benefits though. The major one is *Speed*. Since we are only making one request to the server we don't have to wait for a round trip server call. We have everything stored on the Client-Side already so we just notify our Client-Side code to display this info for us as we need it.
+
+### Single Page App (SPA)
+
+In React we will most likely be building a `SPA`. This means there will never be a new page being loaded just the original GET request to the server to load the initial HTML, CSS and JS files. So we need to figure out how to make the experience of Client-Side routing work for us.
+
+There are a couple of things that we need to take into consideration:
+
+* We want to make sure that we have a URL that displays what the user is doing at that moment. So if they are viewing a bio page it might look like this https://worlds-best-app/bio instead of this https://worlds-best-app.
+
+* We want a user to be able to use the browser's back and forward buttons with ease.
+
+* We want a user to be able to input a URL into the address bar and navigate to the view they need to see.
+
+This was easy with server side rendering most MVC frameworks come with this for free, because we just defined the routes, added the actions needed to the controller and then made a call to the model to get the info we desired.
+
 
 ### Limits of Client-Side routing
+
+So this all sounds great, but what are the limitations? 
 
 ### Push it, Push it
 
