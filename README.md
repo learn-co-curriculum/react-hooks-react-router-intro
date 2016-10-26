@@ -98,7 +98,7 @@ Now type
 window.history.back()
 ```
 
-![Oh No You Didnt](http://giphy.com/gifs/cat-silly-fat-10VbdHyZElXqso "cat giphy")
+![](http://i.giphy.com/10VbdHyZElXqso.gif)
 
 Ok, good to see you back :)
 
