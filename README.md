@@ -6,7 +6,6 @@
 3. What `pushState` is
 
 
-
 ### Client-Side Routing
 
 So we've have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how you can make a page with different components. I mean not every app is a todo list, tic-tac-toe or a spreadsheet, so how do we build an app that allows us to have unique pages for the user to see? This is where `Client-Side` routing comes in.  
@@ -73,10 +72,82 @@ So this all sounds great, but what are the limitations?
 
   * They are much harder to design.
 
-  We have to plan out all the possibilities that might happen on the Client-Side, this might feel like we are repeating designs that we have already completed with out server routes and and models. 
+  We have to plan out all the possibilities that might happen on the Client-Side, this might feel like we are repeating designs that we have already completed with out server routes and and models.
 
 ### Push it, Push it
+
+When we make server calls we are making a GET request to a URL and that new URL is in our address bar. If we have visited a few different URL's though that information is saved in browser history.
+
+Go to the JavaScript console in Chrome and type
+
+```JavaScript
+window.history
+```
+
+This will most likely return an something like this:
+
+```JavaScript
+History {length: 32, state: null, scrollRestoration: "auto"}
+```
+
+The length is how many locations you have visited in this window session.
+
+Now type
+
+```JavaScript
+window.history.back()
+```
+
+![Oh No You Didnt](http://giphy.com/gifs/cat-silly-fat-10VbdHyZElXqso "cat giphy")
+
+Ok, good to see you back :)
+
+So that is the JavaScript equivalent of using the back button in the browser toolbar. You can also move forward using `window.history.forward()`.
+
+With the JavaScript's History API we also have the ability to `pushState()` to the history entries. This method takes in three parameters `pushState(state, title, url)`
+
+* state object:
+
+  This is a plain JavaScript object that is associated with the new history entry we are going to create with the `pushState()` function.
+
+* title:
+
+  This is currently ignored by most browser and it is safe to just pass an empty string or a title here.
+
+* url:
+
+  This is the URL for the new history entry. The browser will not attempt to load this URL after it calls pushState().
+
+Why don't we go ahead and create a new url in our browser
+
+```JavaScript
+var newState = {
+    goal: "Learn about pushState()"
+}
+
+window.history.pushState(newState, "new state", "new-state")
+```
+
+You should notice that your browser has now changed to show `new-state` at the end of your URL address.
+
+Go ahead and type
+
+```JavaScript
+window.history.state
+```
+
+It should return
+
+```JavaScript
+Object {goal: "Learn about pushState()"}
+```
+
+If you now use the `window.history.back()` you will not go back to the previous page, but your URL address will return to the original URL address. If you use `window.history.forward()` you will move back to our new URL that ends in `new-state`
+
+We have now successfully implemented a basic version of client-side routing.
+
 
 ## Resources
 
 * [React Router Tutorial](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/01-setting-up)
+* [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
