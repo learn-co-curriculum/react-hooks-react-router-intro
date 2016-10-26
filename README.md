@@ -8,9 +8,9 @@
 
 ### Client-Side Routing
 
-So we've have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how you can make a page with different components. I mean not every app is a todo list, tic-tac-toe or a spreadsheet, so how do we build an app that allows us to have unique pages for the user to see? This is where `Client-Side` routing comes in.  
+So we've have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how you can make an app with multiple url that contain different components. I mean not every app is a todo list, tic-tac-toe or a spreadsheet. So how do we build an app that allows us to have unique pages for the user to see? This is where `Client-Side` routing comes in.  
 
-Client-Side routing is a different beast then what we used with Rails, because we aren't actually making HTTP GET requests anymore.
+Client-Side routing is a different beast then what we are used to with traditional server side routing with (Rails, Sinatra, Node/Express, etc..) because we aren't actually making HTTP GET requests anymore.
 
 Lets say that our Client-Side app is going to have these routes
 
@@ -39,13 +39,13 @@ well the `server` is only going to render the same `HTML`. Which will look like 
 </html>
 ```
 
-It is now the responsibility of the Client-Side app to handle the finding, fetching and displaying of the data in the browser instead of the server.
+It is now the responsibility of the Client-Side app to handle the routing, fetching and displaying of the data in the browser instead of the server.
 
-We do get some great benefits though. The major one is *Speed*. Since we are only making one request to the server we don't have to wait for a round trip server call. We have everything stored on the Client-Side already so we just notify our Client-Side code to display this info for us as we need it.
+We do get some great benefits though. The major one is *Speed*. Since we are only making one request to the server we don't have to wait for a round trip server call for each page change. We have everything stored on the Client-Side already so we just notify our Client-Side code to display this info for us as we need it.
 
 ### Single Page App (SPA)
 
-In React we will most likely be building a `SPA`. This means there will never be a new page being loaded just the original GET request to the server to load the initial HTML, CSS and JS files. So we need to figure out how to make the experience of Client-Side routing work for us.
+In React we will most likely be building a `SPA`. This means there will never be a new page being loaded just the original GET request that will load the initial HTML, CSS and JS files from the Server. So we need to figure out how to make the experience of Client-Side routing work for us.
 
 There are a couple of things that we need to take into consideration:
 
@@ -64,7 +64,7 @@ So this all sounds great, but what are the limitations?
 
 * Loading of CSS & Javascript
 
-  Since we are now loading all of our CSS and Javascript on the initial GET request it can take a while to load our first page.
+  Since we are now loading all of our CSS and Javascript on the initial GET request it can take a while to load our first page. This can be important as the first page load can take a long time if you have a huge application.
 
  * Analytics
 
@@ -84,7 +84,7 @@ Go to the JavaScript console in Chrome and type
 window.history
 ```
 
-This will most likely return an something like this:
+This should return the following code.
 
 ```JavaScript
 History {length: 32, state: null, scrollRestoration: "auto"}
@@ -92,17 +92,23 @@ History {length: 32, state: null, scrollRestoration: "auto"}
 
 The length is how many locations you have visited in this window session.
 
-Now type
+Now if you type the following code it will take you to the last location in your browser history.
 
 ```JavaScript
 window.history.back()
 ```
 
+Go ahead and try it out.
+
+.............
+............
+..........
+
+Oh good, your back!! :)
+
 ![](http://i.giphy.com/10VbdHyZElXqso.gif)
 
-Ok, good to see you back :)
-
-So that is the JavaScript equivalent of using the back button in the browser toolbar. You can also move forward using `window.history.forward()`.
+So that is the JavaScript to emulate the experience of using the back button in the browser toolbar. You can also move forward using `window.history.forward()`.
 
 With the JavaScript's History API we also have the ability to `pushState()` to the history entries. This method takes in three parameters `pushState(state, title, url)`
 
