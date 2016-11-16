@@ -118,7 +118,7 @@ With the JavaScript's History API we also have the ability to `pushState()` to t
 
 * title:
 
-  This is currently ignored by most browser and it is safe to just pass an empty string or a title here.
+  This is currently ignored by most browsers and it is safe to just pass an empty string or a title here.
 
 * url:
 
