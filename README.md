@@ -8,7 +8,7 @@
 
 ### Client-Side Routing
 
-So we've have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how you can make an app with multiple URLs that contain different components. Not every app is a todo list, tic-tac-toe or a spreadsheet. So how do we build an app that allows us to have unique pages for the user to interact with? This is where `Client-Side` routing comes in.  
+So we have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how you can make an app with multiple URLs that contain different components. Not every app is a todo list, tic-tac-toe or a spreadsheet. So how do we build an app that allows us to have unique pages for the user to interact with? This is where `Client-Side` routing comes in.  
 
 Client-Side routing is a different beast then what we are used to with traditional server side routing that comes with Rails, Sinatra, or Node/Express, because we aren't actually making constant HTTP GET requests.
 
