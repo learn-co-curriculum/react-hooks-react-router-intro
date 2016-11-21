@@ -8,9 +8,9 @@
 
 ### Client-Side Routing
 
-So we've have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how can I make an app with multiple URLs that contain different components. I mean not every app is a todo list, tic-tac-toe or a spreadsheet. So how do we build an app that allows us to have unique pages for the user to see? This is where `Client-Side` routing comes in.  
+So we have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how you can make an app with multiple URLs that contain different components. Not every app is a todo list, tic-tac-toe or a spreadsheet. So how do we build an app that allows us to have unique pages for the user to interact with? This is where `Client-Side` routing comes in.  
 
-Client-Side routing is a different beast then what we are used to with traditional server side routing with (Rails, Sinatra, Node/Express, etc..) because we aren't actually making HTTP GET requests anymore.
+Client-Side routing is a different beast then what we are used to with traditional server side routing that comes with Rails, Sinatra, or Node/Express, because we aren't actually making constant HTTP GET requests.
 
 Lets say that our Client-Side app is going to have these routes
 
@@ -22,7 +22,7 @@ https://www.movie-maker-2016/about
 
 https://www.movie-maker-2016/login
 
-well the `server` is only going to render the same `HTML`. Which will look like this.
+Our `servers` only job is to render the `HTML`. Which will look similar to this.
 
 ```html
 <!DOCTYPE html>
@@ -41,11 +41,11 @@ well the `server` is only going to render the same `HTML`. Which will look like 
 
 With Client-Side routing, it is now the responsibility of the Client-Side-Code to handle the routing, fetching and displaying of the data in the browser instead of the server.
 
-We do get some great benefits though. The major one is *Speed*. Since we are only making one request to the server we don't have to wait for a round trip server call for each page change. We have everything stored on the Client-Side already so we just notify our Client-Side code to display this info for us as we need it.
+We do get some great benefits though. The major one is *Speed*. Since we are only making one request to the server we don't have to wait for a round trip server call for each page change. We have everything stored on the Client-Side already, so we just notify our Client-Side code to display the info as we need it.
 
 ### Single Page App (SPA)
 
-In React we will most likely be building a `SPA`. This means there will never be a new page being loaded just the original GET request that will load the initial HTML, CSS and JS files from the Server. So we need to figure out how to make the experience of Client-Side routing work for us.
+In React we will likely be building a `SPA`. This means we wont require multiple pages being loaded, just the original GET request with our initial HTML, CSS and JS files from the Server. This requires us to figure out how to make the experience of Client-Side routing work to our advantage.
 
 There are a couple of things that we need to take into consideration:
 
@@ -118,7 +118,7 @@ With the JavaScript's History API we also have the ability to `pushState()` to t
 
 * title:
 
-  This is currently ignored by most browser and it is safe to just pass an empty string or a title here.
+  This is currently ignored by most browsers and it is safe to just pass an empty string or a title here.
 
 * url:
 
@@ -152,7 +152,7 @@ If you now use the `window.history.back()` you will not go back to the previous 
 
 We have now successfully implemented a basic version of client-side routing.
 
-As we start learning about React-Router we will start implementing `pushState()` within the context of a React app. 
+As we start learning about React-Router we will start implementing `pushState()` within the context of a React app.
 
 ## Resources
 
