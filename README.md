@@ -8,11 +8,11 @@
 
 ### Client-Side Routing
 
-So we have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how you can make an app with multiple URLs that contain different components. Not every app is a todo list, tic-tac-toe or a spreadsheet. So how do we build an app that allows us to have unique pages for the user to interact with? This is where `Client-Side` routing comes in.  
+So we have learned about building components, changing state, moving state to a store using __Redux__, actions, reducers, etc..., but you are probably wondering how you can make an app with multiple URLs that contain different components. Not every app is a todo list, tic-tac-toe or a spreadsheet. So how do we build an app that allows us to have unique pages for the user to interact with? This is where `Client-Side` routing comes in.  
 
-Client-Side routing is a different beast than what we are used to with traditional server side routing that comes with Rails, Sinatra, or Node/Express, because we aren't actually making constant HTTP GET requests.
+__Client-Side__ routing is a different beast than what we are used to with traditional server side routing that comes with __Rails__, __Sinatra__, or __Node/Express__, because we aren't making constant __HTTP GET__ requests.
 
-Lets say that our Client-Side app is going to have these routes
+Lets say that our __Client-Side__ app is going to have these routes
 
 https://www.movie-maker-2016/movies/new
 
@@ -39,13 +39,13 @@ Our `servers` only job is to render the `HTML`. Which will look similar to this.
 </html>
 ```
 
-With Client-Side routing, it is now the responsibility of the Client-Side-Code to handle the routing, fetching and displaying of the data in the browser instead of the server.
+With __Client-Side__ routing, it is now the responsibility of the __Client-Side-Code__ to handle the routing, fetching and displaying of the data in the browser instead of the server.
 
-We do get some great benefits though. The major one is *Speed*. Since we are only making one request to the server we don't have to wait for a round trip server call for each page change. We have everything stored on the Client-Side already, so we just notify our Client-Side code to display the info as we need it.
+This brings with it some great benefits too. The major one is *Speed*. Since we are only making one request to the server we don't have to wait for a round trip server call for each page change. We have everything stored on the Client-Side already, so we just notify our Client-Side code to display the info as we need it.
 
 ### Single Page App (SPA)
 
-In React we will likely be building a `SPA`. This means we wont require multiple pages being loaded, just the original GET request with our initial HTML, CSS and JS files from the Server. This requires us to figure out how to make the experience of Client-Side routing work to our advantage.
+In __React__ we will likely be building a __SPA__. This means we wont require multiple pages being loaded, just the original __GET__ request with our initial HTML, CSS and JS files from the Server. This requires us to figure out how to make the experience of Client-Side routing work to our advantage.
 
 There are a couple of things that we need to take into consideration:
 
@@ -64,7 +64,7 @@ So this all sounds great, but what are the limitations?
 
 * Loading of CSS & Javascript
 
-  Since we are now loading all of our CSS and Javascript on the initial GET request it can take a while to load our first page. This can be important as the first page load can take a long time if you have a huge application.
+  Since we are now loading all of our CSS and Javascript on the initial __GET__ request it can take a while to load our first page. This can be important as the first page load can take a long time if you have a huge application.
 
  * Analytics
 
@@ -72,11 +72,11 @@ So this all sounds great, but what are the limitations?
 
   * They are much harder to design.
 
-  We have to plan out all the possibilities that might happen on the Client-Side, this might feel like we are repeating designs that we have already completed with out server routes and and models.
+  We have to plan out all the possibilities that might happen on the __Client-Side__, this might feel like we are repeating designs that we have already completed with out server routes and and models.
 
 ### Push it, Push it
 
-When we make server calls we are making a GET request to a URL and that new URL is in our address bar. If we have visited a few different URL's though that information is saved in browser history.
+When we make server calls we are making a __GET__ request to a URL and that new URL is in our address bar. If we have visited a few different URL's though that information is saved in browser history.
 
 Go to the JavaScript console in Chrome and type
 
@@ -87,7 +87,7 @@ window.history
 This should return the following code.
 
 ```JavaScript
-History {length: 32, state: null, scrollRestoration: "auto"}
+History { length: 32, state: null, scrollRestoration: "auto" };
 ```
 
 The length is how many locations you have visited in this window session.
@@ -95,7 +95,7 @@ The length is how many locations you have visited in this window session.
 Now if you type the following code it will take you to the last location in your browser history.
 
 ```JavaScript
-window.history.back()
+window.history.back();
 ```
 
 Go ahead and try it out.
@@ -108,13 +108,13 @@ Oh good, your back!! :)
 
 ![](http://i.giphy.com/10VbdHyZElXqso.gif)
 
-So that is the JavaScript to emulate the experience of using the back button in the browser toolbar. You can also move forward using `window.history.forward()`.
+So that is the JavaScript to emulate the experience of using the back button in the browser toolbar. You can also move forward using __window.history.forward()__.
 
-With the JavaScript's History API we also have the ability to `pushState()` to the history entries. This method takes in three parameters `pushState(state, title, url)`
+With the JavaScript's History API we also have the ability to __pushState()__ to the history entries. This method takes in three parameters __pushState(state, title, url)__
 
 * state object:
 
-  This is a plain JavaScript object that is associated with the new history entry we are going to create with the `pushState()` function.
+  This is a plain JavaScript object that is associated with the new history entry we are going to create with the __pushState()__ function.
 
 * title:
 
@@ -128,10 +128,10 @@ Why don't we go ahead and create a new url in our browser
 
 ```JavaScript
 var newState = {
-    goal: "Learn about pushState()"
-}
+  goal: "Learn about pushState()"
+};
 
-window.history.pushState(newState, "new state", "new-state")
+window.history.pushState(newState, "new state", "new-state");
 ```
 
 You should notice that your browser has now changed to show `new-state` at the end of your URL address.
@@ -145,14 +145,14 @@ window.history.state
 It should return
 
 ```JavaScript
-Object {goal: "Learn about pushState()"}
+Object { goal: "Learn about pushState()" }
 ```
 
-If you now use the `window.history.back()` you will not go back to the previous page, but your URL address will return to the original URL address. If you use `window.history.forward()` you will move back to our new URL that ends in `new-state`
+If you now use the __window.history.back()__ function you will not go back to the previous page, but your URL address will return to the original URL address. If you use __window.history.forward()__ you will move back to our new URL that ends in __new-state__
 
-We have now successfully implemented a basic version of client-side routing.
+We have now successfully implemented a basic version of __Client-Side__ routing.
 
-As we start learning about React-Router we will start implementing `pushState()` within the context of a React app.
+As we start learning about __React Router__ we will start implementing __pushState()__ within the context of a __React__ app.
 
 ## Resources
 
