@@ -10,7 +10,7 @@
 
 So we have learned about building components, changing state, moving state to a store using redux, actions, reducers, etc..., but you are probably wondering how you can make an app with multiple URLs that contain different components. Not every app is a todo list, tic-tac-toe or a spreadsheet. So how do we build an app that allows us to have unique pages for the user to interact with? This is where `Client-Side` routing comes in.  
 
-Client-Side routing is a different beast then what we are used to with traditional server side routing that comes with Rails, Sinatra, or Node/Express, because we aren't actually making constant HTTP GET requests.
+Client-Side routing is a different beast than what we are used to with traditional server side routing that comes with Rails, Sinatra, or Node/Express, because we aren't actually making constant HTTP GET requests.
 
 Lets say that our Client-Side app is going to have these routes
 
@@ -158,3 +158,5 @@ As we start learning about React-Router we will start implementing `pushState()`
 
 * [React Router Tutorial](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/01-setting-up)
 * [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/react-introduction-to-react-router'>React Introduction To React Router</a> on Learn.co and start learning to code for free.</p>
