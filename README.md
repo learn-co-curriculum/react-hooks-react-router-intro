@@ -156,7 +156,7 @@ As we start learning about __React Router__ we will start implementing __pushSta
 
 ## Resources
 
-* [React Router Tutorial](https://github.com/reactjs/react-router-tutorial/tree/master/lessons/01-setting-up)
+* [React Router Tutorial](https://reacttraining.com/react-router/web/guides/quick-start)
 * [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/react-introduction-to-react-router'>React Introduction To React Router</a> on Learn.co and start learning to code for free.</p>
