@@ -2,7 +2,7 @@
 ## Objectives
 
 1. How client-side routing works
-2. What the trade-off are for client-side routing
+2. What the trade-offs are for client-side routing
 3. What `pushState` is
 
 
