@@ -104,7 +104,7 @@ Go ahead and try it out.
 ............
 ..........
 
-Oh good, your back!! :)
+Oh good, you're back!! :)
 
 ![](http://i.giphy.com/10VbdHyZElXqso.gif)
 
