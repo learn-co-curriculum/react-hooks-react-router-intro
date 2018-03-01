@@ -72,7 +72,7 @@ So this all sounds great, but what are the limitations?
 
   * They are much harder to design.
 
-  We have to plan out all the possibilities that might happen on the __Client-Side__, this might feel like we are repeating designs that we have already completed with out server routes and and models.
+  We have to plan out all the possibilities that might happen on the __Client-Side__, this might feel like we are repeating designs that we have already completed with our server routes and models.
 
 ### Push it, Push it
 
