@@ -21,6 +21,7 @@ __Node/Express__, because we aren't making constant __HTTP GET__ requests.
 
 Lets say that our __Client-Side__ app is going to have these routes
 
+
 https://www.movie-maker-2016/movies/new
 
 https://www.movie-maker-2016/movies
@@ -28,6 +29,8 @@ https://www.movie-maker-2016/movies
 https://www.movie-maker-2016/about
 
 https://www.movie-maker-2016/login
+
+_Note: these links are examples and do not lead to any website_
 
 Our `servers` only job is to render the `HTML`. Which will look similar to this.
 
