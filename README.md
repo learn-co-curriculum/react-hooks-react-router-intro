@@ -207,9 +207,24 @@ We have now successfully implemented a basic version of __Client-Side__ routing.
 As we start learning about __React Router__ we will start implementing
 __pushState()__ within the context of a __React__ app.
 
+## A Word About Accessibility
+
+The web was designed, from its inception, to be a platform for _everyone_, including those
+who need help interacting with it through assistive devices. Those requiring captions, inverted
+contrast, etc. have all been able to participate in _our_ web because the it
+was designed with the differently-abled in mind _from the beginning_.
+
+Creating accessibile sites in the SPA style of application represents an additional challenge.
+Many tutorials breeze past this consideration.
+
+Designing SPA's that work with accessibility in mind proves you that you're not only a 
+superior developer, but a great person. Here's a [blog post][bp] on accessibility in React.
+
 ## Resources
 
 * [React Router Tutorial](https://reacttraining.com/react-router/web/guides/quick-start)
 * [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/react-introduction-to-react-router'>React Introduction To React Router</a> on Learn.co and start learning to code for free.</p>
+
+[bp]: https://blog.usejournal.com/getting-started-with-web-accessibility-in-react-9e591fdb0d52
