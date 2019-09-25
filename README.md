@@ -6,8 +6,7 @@
 2. What the trade-offs are for client-side routing
 3. What `pushState` is
 
-
-#### Client-Side Routing
+### Client-Side Routing
 
 So, we have learned about building components, changing state, passing props,
 etc... You may be wondering how you can make an app with multiple URLs that
@@ -21,16 +20,15 @@ __Node/Express__, because we aren't making constant __HTTP GET__ requests.
 
 Lets say that our __Client-Side__ app is going to have these routes
 
+`https://www.movie-maker-2016/movies/new`
 
-https://www.movie-maker-2016/movies/new
+`https://www.movie-maker-2016/movies`
 
-https://www.movie-maker-2016/movies
+`https://www.movie-maker-2016/about`
 
-https://www.movie-maker-2016/about
+`https://www.movie-maker-2016/login`
 
-https://www.movie-maker-2016/login
-
-_Note: these links are examples and do not lead to any website_
+**Note**: these links are examples and do not lead to any website
 
 Our `servers` only job is to render the `HTML`. Which will look similar to this.
 
@@ -66,7 +64,7 @@ wait for a round trip server call for each page change. We have everything
 stored on the Client-Side already, so we just notify our Client-Side code to
 display the info as we need it.
 
-#### Single Page App (SPA)
+### Single Page App (SPA)
 
 In __React__ we will likely be building a __SPA__, or Single Page Application.
 This means we wont require multiple pages being loaded, just the original
@@ -76,21 +74,21 @@ to our advantage.
 
 There are a couple of things that we need to take into consideration:
 
-* We want to make sure that we have a URL that displays what the user is doing at
-that moment. So if they are viewing a bio page it might look like this
-https://worlds-best-app/bio instead of this https://worlds-best-app.
+* We want to make sure that we have a URL that displays what the user is doing
+  at that moment. So if they are viewing a bio page it might look like this
+  `https://worlds-best-app/bio` instead of this `https://worlds-best-app`.
 
-* We want a user to be able to use the browser's back and forward buttons with ease.
+* We want a user to be able to use the browser's back and forward buttons with
+  ease.
 
 * We want a user to be able to input a URL into the address bar and navigate to
-the view they need to see.
+  the view they need to see.
 
 This was easy with server side rendering: most MVC frameworks come with this for
 free, because we just defined the routes, added the actions needed to the
 controller and then made a call to the model to get the info we desired.
 
-
-#### Limits of Client-Side routing
+### Limits of Client-Side routing
 
 So this all sounds great, but what are the limitations?
 
@@ -100,18 +98,18 @@ So this all sounds great, but what are the limitations?
   request it can take a while to load our first page. This can be important as
   the first page load can take a long time if you have a huge application.
 
- * Analytics
+* Analytics
 
   Analytic tools normally track page views, but a SPA doesn't have pages in the
   traditional sense, so this makes it harder for Analytical tools to track page
   views. We will need add extra scripts to handle this limitation. It is good to
   know though, that modern search engine spiders _are_ able to read
 
-  * They are much harder to design.
+* They are much harder to design.
 
-  We have to plan out all the possibilities that might happen on the
-  __Client-Side__, this might feel like we are repeating designs that we have
-  already completed with our server routes and models.
+We have to plan out all the possibilities that might happen on the
+__Client-Side__, this might feel like we are repeating designs that we have
+already completed with our server routes and models.
 
 #### Push it, Push it
 
@@ -133,7 +131,8 @@ History { length: 32, state: null, scrollRestoration: "auto" };
 
 The length is how many locations you have visited in this window session.
 
-Now if you type the following code it will take you to the last location in your browser history.
+Now if you type the following code it will take you to the last location in your
+browser history.
 
 ```JavaScript
 window.history.back();
@@ -147,7 +146,7 @@ Go ahead and try it out.
 
 Oh good, you're back!! :)
 
-![](http://i.giphy.com/10VbdHyZElXqso.gif)
+![no you didn't!](http://i.giphy.com/10VbdHyZElXqso.gif)
 
 So that is the JavaScript to emulate the experience of using the back button in
 the browser toolbar. You can also move forward using
@@ -209,22 +208,24 @@ __pushState()__ within the context of a __React__ app.
 
 ## A Word About Accessibility
 
-The web was designed, from its inception, to be a platform for _everyone_, including those
-who need help interacting with it through assistive devices. Those requiring captions, inverted
-contrast, etc. have all been able to participate in _our_ web because the it
-was designed with the differently-abled in mind _from the beginning_.
+The web was designed, from its inception, to be a platform for _everyone_,
+including those who need help interacting with it through assistive devices.
+Those requiring captions, inverted contrast, etc. have all been able to
+participate in _our_ web because the it was designed with the differently-abled
+in mind _from the beginning_.
 
-Creating accessibile sites in the SPA style of application represents an additional challenge.
-Many tutorials breeze past this consideration.
+Creating accessibile sites in the SPA style of application represents an
+additional challenge. Many tutorials breeze past this consideration.
 
-Designing SPA's that work with accessibility in mind proves you that you're not only a 
-superior developer, but a great person. Here's a [blog post][bp] on accessibility in React.
+Designing SPA's that work with accessibility in mind proves you that you're not
+only a superior developer, but a great person. Here's a [blog post][bp] on
+accessibility in React.
 
 ## Resources
 
 * [React Router Tutorial](https://reacttraining.com/react-router/web/guides/quick-start)
 * [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
 
-<p class='util--hide'>View <a href='https://learn.co/lessons/react-introduction-to-react-router'>React Introduction To React Router</a> on Learn.co and start learning to code for free.</p>
-
 [bp]: https://blog.usejournal.com/getting-started-with-web-accessibility-in-react-9e591fdb0d52
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/react-introduction-to-react-router'>React Introduction To React Router</a> on Learn.co and start learning to code for free.</p>
