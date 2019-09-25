@@ -102,9 +102,8 @@ So this all sounds great, but what are the limitations?
 
   Analytic tools normally track page views, but a SPA doesn't have pages in the
   traditional sense, so this makes it harder for Analytical tools to track page
-  views. We will need add extra scripts to handle this limitation. It is good to
-  know though, that modern search engine spiders _are_ able to read
-
+  views. We will need add extra scripts to handle this limitation.
+  
 * They are much harder to design.
 
 We have to plan out all the possibilities that might happen on the
