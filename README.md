@@ -173,7 +173,7 @@ title, url)__
 Why don't we go ahead and create a new url in our browser
 
 ```JavaScript
-var newState = {
+const newState = {
   goal: "Learn about pushState()"
 };
 
