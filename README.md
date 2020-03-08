@@ -30,7 +30,7 @@ Lets say that our __Client-Side__ app is going to have these routes
 
 **Note**: these links are examples and do not lead to any website
 
-Our `servers` only job is to render the `HTML`. Which will look similar to this.
+Our `server`'s only job is to render the `HTML`. Which will look similar to this.
 
 ```html
 <!DOCTYPE html>
@@ -48,8 +48,8 @@ Our `servers` only job is to render the `HTML`. Which will look similar to this.
 ```
 
 With __Client-Side__ routing, it is now the responsibility of the
-__Client-Side-Code__ to handle the routing, fetching and displaying of the data
-in the browser instead of the server.
+__Client-Side-Code__, rather than the server, to handle the routing, fetching 
+and displaying of the data in the browser.
 
 Imagine you've built a personal blog with a navigation that links your home
 page, about page and contact page. With Client-Side routing, you might get all
@@ -66,9 +66,9 @@ display the info as we need it.
 
 ### Single Page App (SPA)
 
-In __React__ we will likely be building a __SPA__, or Single Page Application.
-This means we wont require multiple pages being loaded, just the original
-__GET__ request with our initial HTML, CSS and JS files from the Server. This
+In __React__ we will likely be building an __SPA__, or Single Page Application.
+This means we won't require multiple pages to be loaded from the server, just 
+the original __GET__ request with our initial HTML, CSS and JS files. This
 requires us to figure out how to make the experience of Client-Side routing work
 to our advantage.
 
@@ -100,20 +100,20 @@ So this all sounds great, but what are the limitations?
 
 * Analytics
 
-  Analytic tools normally track page views, but a SPA doesn't have pages in the
+  Analytic tools normally track page views, but an SPA doesn't have pages in the
   traditional sense, so this makes it harder for Analytical tools to track page
-  views. We will need add extra scripts to handle this limitation.
+  views. We will need to add extra scripts to handle this limitation.
   
 * They are much harder to design.
 
 We have to plan out all the possibilities that might happen on the
-__Client-Side__, this might feel like we are repeating designs that we have
+__Client-Side__; this might feel like we are repeating designs that we have
 already completed with our server routes and models.
 
 #### Push it, Push it
 
 When we make server calls we are making a __GET__ request to a URL and that new
-URL is in our address bar. If we have visited a few different URL's though that
+URL is in our address bar. If we have visited a few different URL's that
 information is saved in browser history.
 
 Go to the JavaScript console in Chrome and type
@@ -210,10 +210,10 @@ __pushState()__ within the context of a __React__ app.
 The web was designed, from its inception, to be a platform for _everyone_,
 including those who need help interacting with it through assistive devices.
 Those requiring captions, inverted contrast, etc. have all been able to
-participate in _our_ web because the it was designed with the differently-abled
+participate in _our_ web because it was designed with the differently-abled
 in mind _from the beginning_.
 
-Creating accessibile sites in the SPA style of application represents an
+Creating accessible sites using SPA-style applications represents an
 additional challenge. Many tutorials breeze past this consideration.
 
 Designing SPA's that work with accessibility in mind proves you that you're not
