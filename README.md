@@ -14,74 +14,69 @@ contain different components. Not every app is a todo list, tic-tac-toe or a
 spreadsheet. So how do we build an app that allows us to have unique pages for
 the user to interact with? This is where `Client-Side` routing comes in.  
 
-__Client-Side__ routing is a different beast than what we are used to with
-traditional server side routing that comes with __Rails__, __Sinatra__, or
-__Node/Express__, because we aren't making constant __HTTP GET__ requests.
+**Client-side** routing is a different beast than what we are used to with
+traditional server side routing that comes with **Rails**, **Sinatra**, or
+**Node/Express**, because we aren't making constant **HTTP GET** requests.
 
-Lets say that our __Client-Side__ app is going to have these routes
+Lets say that our **client side** app is going to have these routes:
 
-`https://www.movie-maker-2016/movies/new`
+- `/movies/new`
+- `/movies`
+- `/about`
+- `/login`
 
-`https://www.movie-maker-2016/movies`
-
-`https://www.movie-maker-2016/about`
-
-`https://www.movie-maker-2016/login`
-
-**Note**: these links are examples and do not lead to any website
-
-Our `server`'s only job is to render the `HTML`. Which will look similar to this.
+Our servers's only job is to render the HTML, which will look similar to this:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Movie Maker 2016</title>
+    <title>Movie Maker 2020</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div id="container"></div>
+    <div id="root"></div>
     <script src="./bundle.js" charset="utf-8"></script>
   </body>
 </html>
 ```
 
-With __Client-Side__ routing, it is now the responsibility of the
-__Client-Side-Code__, rather than the server, to handle the routing, fetching 
+With **client-side** routing, it is now the responsibility of the
+**client side code**, rather than the server, to handle the routing, fetching 
 and displaying of the data in the browser.
 
 Imagine you've built a personal blog with a navigation that links your home
-page, about page and contact page. With Client-Side routing, you might get all
+page, about page and contact page. With client side routing, you might get all
 the needed data to render all three pages on the first page load. Then, when a
-user clicks around your site, the Client-Side router swaps the 'home page'
+user clicks around your site, the client side router swaps the 'home page'
 component with the 'about page' component and renders faster than it would if
 you were requesting a separate page from a server.
 
-Client-Side routing brings with it some great benefits. The major one is
-*Speed*. Since we are only making one request to the server we don't have to
+Client side routing brings with it some great benefits. The major one is
+_speed_. Since we are only making one request to the server, we don't have to
 wait for a round trip server call for each page change. We have everything
-stored on the Client-Side already, so we just notify our Client-Side code to
+stored on the client side already, so we just notify our client side code to
 display the info as we need it.
 
 ### Single Page App (SPA)
 
-In __React__ we will likely be building an __SPA__, or Single Page Application.
+In **React** we will likely be building an **SPA**, or Single Page Application.
 This means we won't require multiple pages to be loaded from the server, just 
-the original __GET__ request with our initial HTML, CSS and JS files. This
+the original **GET** request with our initial HTML, CSS and JS files. This
 requires us to figure out how to make the experience of Client-Side routing work
 to our advantage.
 
 There are a couple of things that we need to take into consideration:
 
-* We want to make sure that we have a URL that displays what the user is doing
+- We want to make sure that we have a URL that displays what the user is doing
   at that moment. So if they are viewing a bio page it might look like this
   `https://worlds-best-app/bio` instead of this `https://worlds-best-app`.
 
-* We want a user to be able to use the browser's back and forward buttons with
-  ease.
+- We want a user to be able to use the browser's back and forward buttons, as
+  well as the browser history, with ease.
 
-* We want a user to be able to input a URL into the address bar and navigate to
+- We want a user to be able to input a URL into the address bar and navigate to
   the view they need to see.
 
 This was easy with server side rendering: most MVC frameworks come with this for
@@ -92,39 +87,37 @@ controller and then made a call to the model to get the info we desired.
 
 So this all sounds great, but what are the limitations?
 
-* Loading of CSS & Javascript
+- **Loading of CSS & Javascript**: Since we are now loading all of our CSS and
+  Javascript on the initial **GET** request it can take a while to load our
+  first page. This can be important as the first page load can take a long time
+  if you have a huge application.
 
-  Since we are now loading all of our CSS and Javascript on the initial __GET__
-  request it can take a while to load our first page. This can be important as
-  the first page load can take a long time if you have a huge application.
+- **Analytics**: Analytic tools normally track page views, but an SPA doesn't
+  have pages in the traditional sense, so this makes it harder for Analytical
+  tools to track page views. We will need to add extra scripts to handle this
+  limitation.
 
-* Analytics
-
-  Analytic tools normally track page views, but an SPA doesn't have pages in the
-  traditional sense, so this makes it harder for Analytical tools to track page
-  views. We will need to add extra scripts to handle this limitation.
-  
-* They are much harder to design.
+- They are much harder to design.
 
 We have to plan out all the possibilities that might happen on the
-__Client-Side__; this might feel like we are repeating designs that we have
+**client side**; this might feel like we are repeating designs that we have
 already completed with our server routes and models.
 
 #### Push it, Push it
 
-When we make server calls we are making a __GET__ request to a URL and that new
+When we make server calls we are making a **GET** request to a URL and that new
 URL is in our address bar. If we have visited a few different URL's that
 information is saved in browser history.
 
-Go to the JavaScript console in Chrome and type
+Go to the JavaScript console in Chrome and type:
 
-```JavaScript
+```js
 window.history
 ```
 
 This should return the following code.
 
-```JavaScript
+```js
 History { length: 32, state: null, scrollRestoration: "auto" };
 ```
 
@@ -149,30 +142,24 @@ Oh good, you're back!! :)
 
 So that is the JavaScript to emulate the experience of using the back button in
 the browser toolbar. You can also move forward using
-__window.history.forward()__.
+**window.history.forward()**.
 
-With the JavaScript's History API we also have the ability to __pushState()__ to
-the history entries. This method takes in three parameters: __pushState(state,
-title, url)__
+With the JavaScript's History API we also have the ability to **pushState()** to
+the history entries. This method takes in three parameters: **pushState(state,
+title, url)**
 
-* state object:
+- `state`: This is a plain JavaScript object that is associated with the new
+  history entry we are going to create with the **pushState()** function.
 
-  This is a plain JavaScript object that is associated with the new history
-  entry we are going to create with the __pushState()__ function.
+- `title`: This is currently ignored by most browsers and it is safe to just
+  pass an empty string or a title here.
 
-* title:
-
-  This is currently ignored by most browsers and it is safe to just pass an
-  empty string or a title here.
-
-* url:
-
-  This is the URL for the new history entry. The browser will not attempt to
-  load this URL after it calls pushState().
+- `url`: This is the URL for the new history entry. The browser will not attempt
+  to load this URL after it calls pushState().
 
 Why don't we go ahead and create a new url in our browser
 
-```JavaScript
+```js
 const newState = {
   goal: "Learn about pushState()"
 };
@@ -185,25 +172,33 @@ end of your URL address.
 
 Go ahead and type
 
-```JavaScript
+```js
 window.history.state
 ```
 
 It should return
 
-```JavaScript
+```js
 Object { goal: "Learn about pushState()" }
 ```
 
-If you now use the __window.history.back()__ function you will not go back to
+If you now use the `window.history.back()` function you will not go back to
 the previous page, but your URL address will return to the original URL address.
-If you use __window.history.forward()__ you will move back to our new URL that
-ends in __new-state__
+If you use `window.history.forward()` you will move back to our new URL that
+ends in **new-state**.
 
-We have now successfully implemented a basic version of __Client-Side__ routing.
+We have now successfully implemented a basic version of **client side** routing.
 
-As we start learning about __React Router__ we will start implementing
-__pushState()__ within the context of a __React__ app.
+## Manipulating History with React Router
+
+**React Router** is a library that gives us an easy way to interact with the
+History API, much like we have been doing above, from within our React
+applications. It will give us several ways to perform **programmatic
+navigation** and **client side** routing from React without worrying about
+working directly with the History API. 
+
+The examples above give a good idea of what's happening under the hood, but from
+here on, we'll be using React Router for all of our client side routing needs!
 
 ## A Word About Accessibility
 
@@ -222,8 +217,8 @@ accessibility in React.
 
 ## Resources
 
-* [React Router Tutorial](https://reacttraining.com/react-router/web/guides/quick-start)
 * [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
+* [React Router Tutorial](https://reacttraining.com/react-router/web/guides/quick-start)
 
 [bp]: https://blog.usejournal.com/getting-started-with-web-accessibility-in-react-9e591fdb0d52
 
