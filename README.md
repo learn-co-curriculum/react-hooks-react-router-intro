@@ -12,7 +12,7 @@ So, we have learned about building components, changing state, passing props,
 etc... You may be wondering how you can make an app with multiple URLs that
 contain different components. Not every app is a todo list, tic-tac-toe or a
 spreadsheet. So how do we build an app that allows us to have unique pages for
-the user to interact with? This is where `Client-Side` routing comes in.  
+the user to interact with? This is where **client-side** routing comes in.
 
 **Client-side** routing is a different beast than what we are used to with
 traditional server side routing that comes with **Rails**, **Sinatra**, or
@@ -32,8 +32,8 @@ Our servers's only job is to render the HTML, which will look similar to this:
 <html>
   <head>
     <title>Movie Maker 2020</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div id="root"></div>
@@ -43,7 +43,7 @@ Our servers's only job is to render the HTML, which will look similar to this:
 ```
 
 With **client-side** routing, it is now the responsibility of the
-**client side code**, rather than the server, to handle the routing, fetching 
+**client side code**, rather than the server, to handle the routing, fetching
 and displaying of the data in the browser.
 
 Imagine you've built a personal blog with a navigation that links your home
@@ -62,7 +62,7 @@ display the info as we need it.
 ### Single Page App (SPA)
 
 In **React** we will likely be building an **SPA**, or Single Page Application.
-This means we won't require multiple pages to be loaded from the server, just 
+This means we won't require multiple pages to be loaded from the server, just
 the original **GET** request with our initial HTML, CSS and JS files. This
 requires us to figure out how to make the experience of Client-Side routing work
 to our advantage.
@@ -112,7 +112,7 @@ information is saved in browser history.
 Go to the JavaScript console in Chrome and type:
 
 ```js
-window.history
+window.history;
 ```
 
 This should return the following code.
@@ -161,7 +161,7 @@ Why don't we go ahead and create a new url in our browser
 
 ```js
 const newState = {
-  goal: "Learn about pushState()"
+  goal: "Learn about pushState()",
 };
 
 window.history.pushState(newState, "new state", "new-state");
@@ -173,7 +173,7 @@ end of your URL address.
 Go ahead and type
 
 ```js
-window.history.state
+window.history.state;
 ```
 
 It should return
@@ -195,7 +195,7 @@ We have now successfully implemented a basic version of **client side** routing.
 History API, much like we have been doing above, from within our React
 applications. It will give us several ways to perform **programmatic
 navigation** and **client side** routing from React without worrying about
-working directly with the History API. 
+working directly with the History API.
 
 The examples above give a good idea of what's happening under the hood, but from
 here on, we'll be using React Router for all of our client side routing needs!
@@ -217,8 +217,8 @@ accessibility in React.
 
 ## Resources
 
-* [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
-* [React Router Tutorial](https://reacttraining.com/react-router/web/guides/quick-start)
+- [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
+- [React Router Tutorial](https://reacttraining.com/react-router/web/guides/quick-start)
 
 [bp]: https://blog.usejournal.com/getting-started-with-web-accessibility-in-react-9e591fdb0d52
 
