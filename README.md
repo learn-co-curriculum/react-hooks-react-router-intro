@@ -18,7 +18,7 @@ the user to interact with? This is where **client-side** routing comes in.
 traditional server side routing that comes with **Rails**, **Sinatra**, or
 **Node/Express**, because we aren't making constant **HTTP GET** requests.
 
-Lets say that our **client side** app is going to have these routes:
+Lets say that our **client-side** app is going to have these routes:
 
 - `/movies/new`
 - `/movies`
@@ -43,29 +43,29 @@ Our servers's only job is to render the HTML, which will look similar to this:
 ```
 
 With **client-side** routing, it is now the responsibility of the
-**client side code**, rather than the server, to handle the routing, fetching
+**client-side code**, rather than the server, to handle the routing, fetching
 and displaying of the data in the browser.
 
 Imagine you've built a personal blog with a navigation that links your home
-page, about page and contact page. With client side routing, you might get all
+page, about page and contact page. With client-side routing, you might get all
 the needed data to render all three pages on the first page load. Then, when a
-user clicks around your site, the client side router swaps the 'home page'
+user clicks around your site, the client-side router swaps the 'home page'
 component with the 'about page' component and renders faster than it would if
 you were requesting a separate page from a server.
 
-Client side routing brings with it some great benefits. The major one is
+client-side routing brings with it some great benefits. The major one is
 _speed_. Since we are only making one request to the server, we don't have to
 wait for a round trip server call for each page change. We have everything
-stored on the client side already, so we just notify our client side code to
+stored on the client-side already, so we just notify our client-side code to
 display the info as we need it.
 
 ### Single Page App (SPA)
 
-In **React** we will likely be building an **SPA**, or Single Page Application.
-This means we won't require multiple pages to be loaded from the server, just
-the original **GET** request with our initial HTML, CSS and JS files. This
-requires us to figure out how to make the experience of Client-Side routing work
-to our advantage.
+In **React** we will likely be building a Single Page Application (SPA). This
+means we won't require multiple pages to be loaded from the server, just the
+original **GET** request with our initial HTML, CSS and JS files. This requires
+us to figure out how to make the experience of client-side routing work to our
+advantage.
 
 There are a couple of things that we need to take into consideration:
 
@@ -100,7 +100,7 @@ So this all sounds great, but what are the limitations?
 - They are much harder to design.
 
 We have to plan out all the possibilities that might happen on the
-**client side**; this might feel like we are repeating designs that we have
+**client-side**; this might feel like we are repeating designs that we have
 already completed with our server routes and models.
 
 #### Push it, Push it
@@ -187,18 +187,18 @@ the previous page, but your URL address will return to the original URL address.
 If you use `window.history.forward()` you will move back to our new URL that
 ends in **new-state**.
 
-We have now successfully implemented a basic version of **client side** routing.
+We have now successfully implemented a basic version of **client-side** routing.
 
 ## Manipulating History with React Router
 
 **React Router** is a library that gives us an easy way to interact with the
 History API, much like we have been doing above, from within our React
 applications. It will give us several ways to perform **programmatic
-navigation** and **client side** routing from React without worrying about
+navigation** and **client-side** routing from React without worrying about
 working directly with the History API.
 
 The examples above give a good idea of what's happening under the hood, but from
-here on, we'll be using React Router for all of our client side routing needs!
+here on, we'll be using React Router for all of our client-side routing needs!
 
 ## A Word About Accessibility
 
