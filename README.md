@@ -69,7 +69,7 @@ wait for a round trip server call for each page change. We have everything
 stored on the client-side already, so we just notify our client-side code to
 display the info as we need it.
 
-## Single-Page Application (SPA)
+## Single-Page Applications (SPAs)
 
 Create React App was designed to build single-page applications. This means we
 won't require multiple pages to be loaded from the server, just the original
@@ -93,7 +93,7 @@ This is easy with server-side routing, since this is the way the web has worked
 since its inception; with client-side routing, we'll need a few tricks to
 emulate this behavior.
 
-## Limits of Client-Side routing
+## Limits of Client-Side Routing
 
 So this all sounds great, but what are the limitations?
 
@@ -146,7 +146,7 @@ including the `pathname`. For example, the Location object for
 - `pathname`: "/movies"
 - `protocol`: "http:"
 
-If we were designing client-side routing ourselves _without_ React router, the
+If we were designing client-side routing ourselves _without_ React Router, the
 `pathname` in particular would be useful for associating a component with a
 "page" in our application:
 
