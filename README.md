@@ -1,9 +1,10 @@
-# Introduction to React Router
+# Introduction to Client-Side Routing
 
 ## Learning Goals
 
 - Understand how client-side routing works and how it differs from server-side
   routing
+- Use the Location and History API in JavaScript
 
 ## Introduction
 
