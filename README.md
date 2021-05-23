@@ -1,37 +1,46 @@
 # Introduction to React Router
 
-## Objectives
+## Learning Goals
 
-1. How client-side routing works
-2. What the trade-offs are for client-side routing
-3. What `pushState` is
+- Understand how client-side routing works and how it differs from server-side
+  routing
 
-### Client-Side Routing
+## Introduction
 
-So, we have learned about building components, changing state, passing props,
-etc... You may be wondering how you can make an app with multiple URLs that
-contain different components. Not every app is a todo list, tic-tac-toe or a
-spreadsheet. So how do we build an app that allows us to have unique pages for
-the user to interact with? This is where **client-side** routing comes in.
+We have learned about building components, changing state, passing props, and
+even interacting with APIs. We have one last major feature to talk about when it
+comes to making **single-page applications**: how can we separate out our
+components onto separate "pages", each with their own unique URL? This is where
+**client-side** routing comes in.
 
-**Client-side** routing is a different beast than what we are used to with
-traditional server side routing that comes with **Rails**, **Sinatra**, or
-**Node/Express**, because we aren't making constant **HTTP GET** requests.
+For the majority of applications that aren't single-page application, **routing**
+describes the following process:
+
+- A user clicks on a link
+- That link has its own distinct URL (`/contact`)
+- The browser makes a **GET request** to the server for the content at that URL
+- The server sends a **response** with a new HTML document for the `/contact` page
+
+With **client-side routing**, the process will look different for one very
+important reason: the goal of **client-side routing** is to handle all the
+routing logic with JavaScript, without making any additional GET requests for
+some new HTML document. Remember, we have a **single-page application**, so
+there is by definition only one HTML document for our entire application!
 
 Lets say that our **client-side** app is going to have these routes:
 
-- `/movies/new`
 - `/movies`
 - `/about`
 - `/login`
 
-Our servers's only job is to render the HTML, which will look similar to this:
+Our React servers's only job is to render the HTML, which will look similar to
+this:
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Movie Maker 2020</title>
+    <title>Movie Maker 3000</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
@@ -42,36 +51,36 @@ Our servers's only job is to render the HTML, which will look similar to this:
 </html>
 ```
 
-With **client-side** routing, it is now the responsibility of the
-**client-side code**, rather than the server, to handle the routing, fetching
-and displaying of the data in the browser.
+With **client-side** routing, it is the responsibility of the **client-side
+code**, rather than the server, to handle the routing, fetching and displaying
+of the data in the browser.
 
-Imagine you've built a personal blog with a navigation that links your home
-page, about page and contact page. With client-side routing, you might get all
-the needed data to render all three pages on the first page load. Then, when a
-user clicks around your site, the client-side router swaps the 'home page'
-component with the 'about page' component and renders faster than it would if
-you were requesting a separate page from a server.
+In the example above, we'll want separate pages for `/movies`, `/login`, and
+`/about`. With client-side routing, you might get all the needed data to render
+all three pages on the first page load. Then, when a user clicks around your
+site, the client-side router swaps the 'movies page' component with the 'about
+page' component and renders faster than it would if you were requesting a
+separate page from a server.
 
-client-side routing brings with it some great benefits. The major one is
+Client-side routing brings with it some great benefits. The major one is
 _speed_. Since we are only making one request to the server, we don't have to
 wait for a round trip server call for each page change. We have everything
 stored on the client-side already, so we just notify our client-side code to
 display the info as we need it.
 
-### Single Page App (SPA)
+## Single-Page Application (SPA)
 
-In **React** we will likely be building a Single Page Application (SPA). This
-means we won't require multiple pages to be loaded from the server, just the
-original **GET** request with our initial HTML, CSS and JS files. This requires
-us to figure out how to make the experience of client-side routing work to our
+Create React App was designed to build single-page applications. This means we
+won't require multiple pages to be loaded from the server, just the original
+**GET** request with our initial HTML, CSS and JS files. This requires us to
+figure out how to make the experience of client-side routing work to our
 advantage.
 
 There are a couple of things that we need to take into consideration:
 
 - We want to make sure that we have a URL that displays what the user is doing
-  at that moment. So if they are viewing a bio page it might look like this
-  `https://worlds-best-app/bio` instead of this `https://worlds-best-app`.
+  at that moment. So if they are viewing a bio page it might look like
+  `https://worlds-best-app/bio` instead of `https://worlds-best-app`.
 
 - We want a user to be able to use the browser's back and forward buttons, as
   well as the browser history, with ease.
@@ -79,11 +88,11 @@ There are a couple of things that we need to take into consideration:
 - We want a user to be able to input a URL into the address bar and navigate to
   the view they need to see.
 
-This was easy with server side rendering: most MVC frameworks come with this for
-free, because we just defined the routes, added the actions needed to the
-controller and then made a call to the model to get the info we desired.
+This is easy with server-side routing, since this is the way the web has worked
+since its inception; with client-side routing, we'll need a few tricks to
+emulate this behavior.
 
-### Limits of Client-Side routing
+## Limits of Client-Side routing
 
 So this all sounds great, but what are the limitations?
 
@@ -93,29 +102,87 @@ So this all sounds great, but what are the limitations?
   if you have a huge application.
 
 - **Analytics**: Analytic tools normally track page views, but an SPA doesn't
-  have pages in the traditional sense, so this makes it harder for Analytical
+  have pages in the traditional sense, so this makes it harder for analytical
   tools to track page views. We will need to add extra scripts to handle this
   limitation.
 
 - They are much harder to design.
 
-We have to plan out all the possibilities that might happen on the
-**client-side**; this might feel like we are repeating designs that we have
-already completed with our server routes and models.
+## React Router
 
-#### Push it, Push it
+The most popular client-side routing library to use with React is
+[**React Router**][react router].
 
-When we make server calls we are making a **GET** request to a URL and that new
-URL is in our address bar. If we have visited a few different URL's that
-information is saved in browser history.
+React Router has a lot of great features, but at its core, the two key things it
+lets us do are:
 
-Go to the JavaScript console in Chrome and type:
+- Conditionally rendering components based on the URL (when the URL is
+  `/movies`, display the `<Movie>` component)
+- Programmatic navigation using JavaScript (when I click this link, change the
+  URL to `/movies` without making a request for a new HTML document)
+
+All of the features of React Router build on top of features that are already
+built into JavaScript via different web APIs, primarily the
+[Location][location api] and [History][history api] APIs. Below, we'll briefly
+explain the purpose of each. You won't be interacting with these APIs directly
+going forward (that's the job of React Router), but nonetheless, it's good to
+know how they work to demystify how React Router does its job.
+
+## The Location API
+
+You can access the location in the URL bar from any website by typing this in
+the console:
+
+```js
+window.location;
+```
+
+This will return a `Location` object with all kinds of useful information,
+including the `pathname`. For example, the Location object for
+`http://localhost:3000/movies` has the following properties:
+
+- `origin`: "https://localhost:3000"
+- `pathname`: "/movies"
+- `protocol`: "http:"
+
+If we were designing client-side routing ourselves _without_ React router, the
+`pathname` in particular would be useful for associating a component with a
+"page" in our application:
+
+```js
+function App() {
+  let currentPage;
+  if (window.location.pathname === "/movies") {
+    currentPage = <Movies />;
+  } else if (window.location.pathname === "/about") {
+    currentPage = <About />;
+  } else {
+    currentPage = <h2>404 not found</h2>;
+  }
+
+  return (
+    <div>
+      <h1>Movie Maker 3000</h1>
+      {currentPage}
+    </div>
+  );
+}
+```
+
+React Router has a much more elegant way of handling this routing logic, as
+we'll see in coming lessons. But at a basic level, having some conditional
+rendering based on the URL is key to any client-side routing solution.
+
+## The History API
+
+Whenever we load a new page in the browser, that information is saved in browser
+history. Go to the JavaScript console and type:
 
 ```js
 window.history;
 ```
 
-This should return the following code.
+This should return the following code:
 
 ```js
 History { length: 32, state: null, scrollRestoration: "auto" };
@@ -123,30 +190,21 @@ History { length: 32, state: null, scrollRestoration: "auto" };
 
 The length is how many locations you have visited in this window session.
 
-Now if you type the following code it will take you to the last location in your
-browser history.
+If you type the following code, it will take you to the last location in your
+browser history:
 
 ```JavaScript
 window.history.back();
 ```
 
-Go ahead and try it out.
+Go ahead and try it out!
 
-.............
-............
-..........
+That is the JavaScript equivalent of using the back button in the browser
+toolbar. You can also move forward using `window.history.forward()`.
 
-Oh good, you're back!! :)
-
-![no you didn't!](http://i.giphy.com/10VbdHyZElXqso.gif)
-
-So that is the JavaScript to emulate the experience of using the back button in
-the browser toolbar. You can also move forward using
-**window.history.forward()**.
-
-With the JavaScript's History API we also have the ability to **pushState()** to
-the history entries. This method takes in three parameters: **pushState(state,
-title, url)**
+With JavaScript's History API, we also have the ability to use the
+`window.history.pushState()` method to programatically navigate to a new page.
+This method takes in three parameters:
 
 - `state`: This is a plain JavaScript object that is associated with the new
   history entry we are going to create with the **pushState()** function.
@@ -155,9 +213,9 @@ title, url)**
   pass an empty string or a title here.
 
 - `url`: This is the URL for the new history entry. The browser will not attempt
-  to load this URL after it calls pushState().
+  to load this URL after it calls pushState.
 
-Why don't we go ahead and create a new url in our browser
+Go ahead and navigate to a new URL in our browser:
 
 ```js
 const newState = {
@@ -168,15 +226,13 @@ window.history.pushState(newState, "new state", "new-state");
 ```
 
 You should notice that your browser has now changed to show `new-state` at the
-end of your URL address.
-
-Go ahead and type
+end of your URL address. Go ahead and type:
 
 ```js
 window.history.state;
 ```
 
-It should return
+It should return:
 
 ```js
 Object { goal: "Learn about pushState()" }
@@ -187,39 +243,57 @@ the previous page, but your URL address will return to the original URL address.
 If you use `window.history.forward()` you will move back to our new URL that
 ends in **new-state**.
 
-We have now successfully implemented a basic version of **client-side** routing.
+In a React application, we could use the History API to change the default
+behavior of an `<a>` tag to use `pushState` instead of making a GET request
+to the provided URL:
 
-## Manipulating History with React Router
+```js
+function NavBar() {
+  function navigate(e) {
+    // don't make a GET request
+    e.preventDefault();
+    // use pushState to navigate using the href attribute of the <a> tag
+    window.history.pushState(null, "", e.target.href);
+  }
 
-**React Router** is a library that gives us an easy way to interact with the
-History API, much like we have been doing above, from within our React
-applications. It will give us several ways to perform **programmatic
-navigation** and **client-side** routing from React without worrying about
-working directly with the History API.
+  return (
+    <nav>
+      <a href="/movies" onClick={navigate}>
+        Movies
+      </a>
+      <a href="/about" onClick={navigate}>
+        About
+      </a>
+      <a href="/login" onClick={navigate}>
+        Login
+      </a>
+    </nav>
+  );
+}
+```
 
-The examples above give a good idea of what's happening under the hood, but from
-here on, we'll be using React Router for all of our client-side routing needs!
+React Router provides similar functionality with its own custom version of the
+History API that lets it listen for changes to the URL and re-render your
+application with the correct component based on the new URL.
 
-## A Word About Accessibility
+## Conclusion
 
-The web was designed, from its inception, to be a platform for _everyone_,
-including those who need help interacting with it through assistive devices.
-Those requiring captions, inverted contrast, etc. have all been able to
-participate in _our_ web because it was designed with the differently-abled
-in mind _from the beginning_.
+Client-side routing is an important feature to make our single-page applications
+feel like real websites by changing what the user sees on the page based on the
+URL. It also comes with the benefit of speed since the browser doesn't have to
+re-load the entire HTML document and all the JavaScript/CSS files associated
+with it for each request.
 
-Creating accessible sites using SPA-style applications represents an
-additional challenge. Many tutorials breeze past this consideration.
-
-Designing SPA's that work with accessibility in mind proves you that you're not
-only a superior developer, but a great person. Here's a [blog post][bp] on
-accessibility in React.
+Thanks to browser features like the Location and History APIs, JavaScript has
+all the tools needed to enable client-side routing. In the coming lessons, we'll
+see how to use React Router to make it easy to take advantage of these features
+in our React applications.
 
 ## Resources
 
-- [Manipulating Browser History](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
-- [React Router Tutorial](https://reacttraining.com/react-router/web/guides/quick-start)
+- [React Router Tutorial][react router]
+- [Manipulating Browser History][history api]
 
-[bp]: https://blog.usejournal.com/getting-started-with-web-accessibility-in-react-9e591fdb0d52
-
-<p class='util--hide'>View <a href='https://learn.co/lessons/react-introduction-to-react-router'>React Introduction To React Router</a> on Learn.co and start learning to code for free.</p>
+[react router]: https://reactrouter.com/web/guides/quick-start
+[location api]: https://developer.mozilla.org/en-US/docs/Web/API/Location
+[history api]: https://developer.mozilla.org/en-US/docs/Web/API/History_API
