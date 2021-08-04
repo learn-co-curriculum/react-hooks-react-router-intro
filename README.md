@@ -134,7 +134,7 @@ know how they work to demystify how React Router does its job.
 You can access the location in the URL bar from any website by typing this in
 the console:
 
-```js
+```jsx
 window.location;
 ```
 
@@ -150,7 +150,7 @@ If we were designing client-side routing ourselves _without_ React Router, the
 `pathname` in particular would be useful for associating a component with a
 "page" in our application:
 
-```js
+```jsx
 function App() {
   let currentPage;
   if (window.location.pathname === "/movies") {
@@ -179,13 +179,13 @@ rendering based on the URL is key to any client-side routing solution.
 Whenever we load a new page in the browser, that information is saved in browser
 history. Go to the JavaScript console and type:
 
-```js
+```jsx
 window.history;
 ```
 
 This should return the following code:
 
-```js
+```jsx
 History { length: 32, state: null, scrollRestoration: "auto" };
 ```
 
@@ -218,7 +218,7 @@ This method takes in three parameters:
 
 Go ahead and navigate to a new URL in our browser:
 
-```js
+```jsx
 const newState = {
   goal: "Learn about pushState()",
 };
@@ -229,13 +229,13 @@ window.history.pushState(newState, "new state", "new-state");
 You should notice that your browser has now changed to show `new-state` at the
 end of your URL address. Go ahead and type:
 
-```js
+```jsx
 window.history.state;
 ```
 
 It should return:
 
-```js
+```jsx
 Object { goal: "Learn about pushState()" }
 ```
 
@@ -248,7 +248,7 @@ In a React application, we could use the History API to change the default
 behavior of an `<a>` tag to use `pushState` instead of making a GET request
 to the provided URL:
 
-```js
+```jsx
 function NavBar() {
   function navigate(e) {
     // don't make a GET request
