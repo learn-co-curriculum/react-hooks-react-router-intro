@@ -113,7 +113,7 @@ So this all sounds great, but what are the limitations?
 ## React Router
 
 The most popular client-side routing library to use with React is
-[**React Router**][react router].
+[**React Router**][react-router].
 
 React Router has a lot of great features, but at its core, the two key things it
 enables are:
@@ -125,11 +125,11 @@ enables are:
   making a request for a new HTML document
 
 All of the features of React Router build on top of features that are already
-built into JavaScript via different web APIs, primarily the [Location][location
-api] and [History][history api] APIs. Below, we'll briefly explain the purpose
-of each. You won't be interacting with these APIs directly going forward (that's
-the job of React Router), but knowing how they work will help you better
-understand how React Router does its job.
+built into JavaScript via different web APIs, primarily the
+[Location][location-api] and [History][history-api] APIs. Below, we'll briefly
+explain the purpose of each. You won't be interacting with these APIs directly
+going forward (that's the job of React Router), but knowing how they work will
+help you better understand how React Router does its job.
 
 ## The Location API
 
@@ -298,6 +298,6 @@ in our React applications.
 - [React Router Tutorial][react router]
 - [Manipulating Browser History][history api]
 
-[react router]: https://reactrouter.com/web/guides/quick-start
-[location api]: https://developer.mozilla.org/en-US/docs/Web/API/Location
-[history api]: https://developer.mozilla.org/en-US/docs/Web/API/History_API
+[react-router]: https://reactrouter.com/web/guides/quick-start
+[location-api]: https://developer.mozilla.org/en-US/docs/Web/API/Location
+[history-api]: https://developer.mozilla.org/en-US/docs/Web/API/History_API
