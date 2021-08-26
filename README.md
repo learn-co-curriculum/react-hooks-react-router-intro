@@ -11,10 +11,10 @@
 We have learned about building components, changing state, passing props, and
 even interacting with APIs. We have one last major feature to talk about when it
 comes to making **single-page applications**: how can we separate out our
-components onto separate "pages", each with their own unique URL? This is where
+components onto different "pages", each with their own unique URL? This is where
 **client-side** routing comes in.
 
-For the majority of applications that aren't single-page application, **routing**
+For the majority of applications that aren't single-page applications, **routing**
 describes the following process:
 
 - A user clicks on a link
@@ -34,7 +34,7 @@ Lets say that our **client-side** app is going to have these routes:
 - `/about`
 - `/login`
 
-Our React servers's only job is to render the HTML, which will look similar to
+Our React server's only job is to render the HTML, which will look similar to
 this:
 
 ```html
@@ -52,21 +52,21 @@ this:
 </html>
 ```
 
-With **client-side** routing, it is the responsibility of the **client-side
-code**, rather than the server, to handle the routing, fetching and displaying
-of the data in the browser.
+With **client-side** routing, the server is not responsible for handling the
+routing, fetching and displaying of the data in the browser. These things are
+the responsibility of the **client-side code** instead.
 
 In the example above, we'll want separate pages for `/movies`, `/login`, and
-`/about`. With client-side routing, you might get all the needed data to render
-all three pages on the first page load. Then, when a user clicks around your
-site, the client-side router swaps the 'movies page' component with the 'about
-page' component and renders faster than it would if you were requesting a
-separate page from a server.
+`/about`. With client-side routing, you might get all the data necessary to
+render all three pages on the first page load. Then, when a user clicks around
+your site, the client-side router swaps the 'movies page' component with the
+'about page' component and renders faster than it would if you were requesting
+each separate page from a server.
 
 Client-side routing brings with it some great benefits. The major one is
 _speed_. Since we are only making one request to the server, we don't have to
 wait for a round trip server call for each page change. We have everything
-stored on the client-side already, so we just notify our client-side code to
+stored on the client side already, so we just notify our client-side code to
 display the info as we need it.
 
 ## Single-Page Applications (SPAs)
@@ -77,7 +77,7 @@ won't require multiple pages to be loaded from the server, just the original
 figure out how to make the experience of client-side routing work to our
 advantage.
 
-There are a couple of things that we need to take into consideration:
+There are a few things we need to take into consideration:
 
 - We want to make sure that we have a URL that displays what the user is doing
   at that moment. So if they are viewing a bio page it might look like
@@ -107,7 +107,8 @@ So this all sounds great, but what are the limitations?
   tools to track page views. We will need to add extra scripts to handle this
   limitation.
 
-- They are much harder to design.
+- Single-page applications with client-side routing are harder to design
+  than traditional multi-page applications.
 
 ## React Router
 
@@ -115,19 +116,20 @@ The most popular client-side routing library to use with React is
 [**React Router**][react router].
 
 React Router has a lot of great features, but at its core, the two key things it
-lets us do are:
+enables are:
 
-- Conditionally rendering components based on the URL (when the URL is
-  `/movies`, display the `<Movie>` component)
-- Programmatic navigation using JavaScript (when I click this link, change the
-  URL to `/movies` without making a request for a new HTML document)
+- Conditional rendering of components based on the URL: when the URL is
+  `/movies`, the `<Movie>` component is displayed
+- Programmatic navigation using JavaScript: when a link to the Movie page is
+  clicked, the URL changes to `/movies` and the content is updated without
+  making a request for a new HTML document
 
 All of the features of React Router build on top of features that are already
-built into JavaScript via different web APIs, primarily the
-[Location][location api] and [History][history api] APIs. Below, we'll briefly
-explain the purpose of each. You won't be interacting with these APIs directly
-going forward (that's the job of React Router), but nonetheless, it's good to
-know how they work to demystify how React Router does its job.
+built into JavaScript via different web APIs, primarily the [Location][location
+api] and [History][history api] APIs. Below, we'll briefly explain the purpose
+of each. You won't be interacting with these APIs directly going forward (that's
+the job of React Router), but knowing how they work will help you better
+understand how React Router does its job.
 
 ## The Location API
 
@@ -142,7 +144,7 @@ This will return a `Location` object with all kinds of useful information,
 including the `pathname`. For example, the Location object for
 `http://localhost:3000/movies` has the following properties:
 
-- `origin`: "https://localhost:3000"
+- `origin`: "http://localhost:3000"
 - `pathname`: "/movies"
 - `protocol`: "http:"
 
@@ -216,7 +218,8 @@ This method takes in three parameters:
 - `url`: This is the URL for the new history entry. The browser will not attempt
   to load this URL after it calls pushState.
 
-Go ahead and navigate to a new URL in our browser:
+Try programmatically navigating to a new URL in your browser by running this
+code in the console:
 
 ```jsx
 const newState = {
