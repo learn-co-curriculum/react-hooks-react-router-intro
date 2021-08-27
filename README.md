@@ -137,7 +137,7 @@ You can access the location in the URL bar from any website by typing this in
 the console:
 
 ```console
-window.location;
+$ window.location;
 ```
 
 This will return a `Location` object with all kinds of useful information,
