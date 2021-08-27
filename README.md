@@ -136,7 +136,7 @@ help you better understand how React Router does its job.
 You can access the location in the URL bar from any website by typing this in
 the console:
 
-```jsx
+```console
 window.location;
 ```
 
@@ -181,13 +181,13 @@ rendering based on the URL is key to any client-side routing solution.
 Whenever we load a new page in the browser, that information is saved in browser
 history. Go to the JavaScript console and type:
 
-```jsx
-window.history;
+```console
+$ window.history;
 ```
 
 This should return the following code:
 
-```jsx
+```text
 History { length: 32, state: null, scrollRestoration: "auto" };
 ```
 
@@ -196,8 +196,8 @@ The length is how many locations you have visited in this window session.
 If you type the following code, it will take you to the last location in your
 browser history:
 
-```JavaScript
-window.history.back();
+```console
+$ window.history.back();
 ```
 
 Go ahead and try it out!
@@ -232,13 +232,13 @@ window.history.pushState(newState, "new state", "new-state");
 You should notice that your browser has now changed to show `new-state` at the
 end of your URL address. Go ahead and type:
 
-```jsx
-window.history.state;
+```console
+$ window.history.state;
 ```
 
 It should return:
 
-```jsx
+```text
 Object { goal: "Learn about pushState()" }
 ```
 
