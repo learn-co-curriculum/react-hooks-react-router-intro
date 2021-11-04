@@ -131,6 +131,22 @@ explain the purpose of each. You won't be interacting with these APIs directly
 going forward (that's the job of React Router), but knowing how they work will
 help you better understand how React Router does its job.
 
+### React Router: v5 and v6
+
+React Router released [version 6][] in November of 2021, and the new version has
+several changes to the way React Router works internally as well as how you can
+use it as a developer. Our curriculum teaches version 5 of React Router, since
+it's more widely used by the React community at this time. You can access the
+documentation for React Router v5 here:
+
+- [https://v5.reactrouter.com](https://v5.reactrouter.com)
+
+While the React community transitions from using v5 to v6, you'll likely come
+across blog posts and other resources that refer to both versions. Make sure to
+look for resources that refer to v5 of React Router for consistency with the
+syntax we cover in the curriculum. You're welcome to explore React Router v6 if
+you're curious! Just be aware of these changes.
+
 ## The Location API
 
 You can access the location in the URL bar from any website by typing this in
@@ -175,22 +191,6 @@ function App() {
 React Router has a much more elegant way of handling this routing logic, as
 we'll see in coming lessons. But at a basic level, having some conditional
 rendering based on the URL is key to any client-side routing solution.
-
-### React Router: v5 and v6
-
-React Router released [version 6][] in November of 2021, and the new version has
-several changes to the way React Router works internally as well as how you can
-use it as a developer. Our curriculum teaches version 5 of React Router, since
-it's more widely used by the React community at this time. You can access the
-documentation for React Router v5 here:
-
-- [https://v5.reactrouter.com](https://v5.reactrouter.com)
-
-While the React community transitions from using v5 to v6, you'll likely come
-across blog posts and other resources that refer to both versions. Make sure to
-look for resources that refer to v5 of React Router for consistency with the
-syntax we cover in the curriculum. You're welcome to explore React Router v6 if
-you're curious! Just be aware of these changes.
 
 ## The History API
 
