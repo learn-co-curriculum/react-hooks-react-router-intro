@@ -4,4 +4,7 @@
   :course_id: 3264
   :canvas_url: https://learning.flatironschool.com/courses/3264/pages/64303
   :type: page
-    
+- :id: 156832
+  :course_id: 5492
+  :canvas_url: https://learning.flatironschool.com/courses/5492/pages/introduction-to-client-side-routing
+  :type: page
