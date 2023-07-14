@@ -277,22 +277,6 @@ React Router provides similar functionality with its own custom version of the
 History API that lets it listen for changes to the URL and re-render your
 application with the correct component based on the new URL.
 
-## React Router: v5 and v6
-
-React Router released [version 6][] in November of 2021, and the new version has
-several changes to the way React Router works internally as well as how you can
-use it as a developer. Our curriculum teaches version 5 of React Router, since
-it's more widely used by the React community at this time. You can access the
-documentation for React Router v5 here:
-
-- [https://v5.reactrouter.com](https://v5.reactrouter.com)
-
-While the React community transitions from using v5 to v6, you'll likely come
-across blog posts and other resources that refer to both versions. Make sure to
-look for resources that refer to v5 of React Router for consistency with the
-syntax we cover in the curriculum. You're welcome to explore React Router v6 if
-you're curious! Just be aware of these changes.
-
 ## Conclusion
 
 Client-side routing is an important feature to make our single-page applications
@@ -311,7 +295,6 @@ in our React applications.
 - [React Router Tutorial][react-router]
 - [Manipulating Browser History][history-api]
 
-[react-router]: https://v5.reactrouter.com/web/guides/quick-start
+[react-router]: https://reactrouter.com/en/main/start/tutorial
 [location-api]: https://developer.mozilla.org/en-US/docs/Web/API/Location
 [history-api]: https://developer.mozilla.org/en-US/docs/Web/API/History_API
-[version 6]: https://remix.run/blog/react-router-v6
