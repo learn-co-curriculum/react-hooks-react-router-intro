@@ -295,6 +295,6 @@ in our React applications.
 - [React Router Tutorial][react-router]
 - [Manipulating Browser History][history-api]
 
-[react-router]: https://reactrouter.com/en/main/start/tutorial
+[react-router]: https://reactrouter.com/en/main
 [location-api]: https://developer.mozilla.org/en-US/docs/Web/API/Location
 [history-api]: https://developer.mozilla.org/en-US/docs/Web/API/History_API
